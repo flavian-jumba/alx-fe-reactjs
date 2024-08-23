@@ -1,6 +1,6 @@
-import Header from "./Header"
-import UserProfile from "./UserProfile"
-import MainContent from "./MainContent"
+import Header from "./components/Header"
+import UserProfile from "./components/UserProfile"
+import MainContent from "./components/MainContent"
 function App() {
 
 
