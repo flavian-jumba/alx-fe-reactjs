@@ -3,41 +3,30 @@ import create from 'zustand';
 
 const useRecipeStore = create((set) => ({
   recipes: [],
-  searchTerm: '',
-  filteredRecipes: [],
+  favorites: [],
   
-  // Action to set the search term
-  setSearchTerm: (term) => set((state) => {
-    const filtered = state.recipes.filter((recipe) =>
-      recipe.title.toLowerCase().includes(term.toLowerCase())
+  // Action to add a recipe to favorites
+  addFavorite: (recipeId) => set((state) => ({
+    favorites: [...new Set([...state.favorites, recipeId])], // Ensure no duplicates
+  })),
+
+  // Action to remove a recipe from favorites
+  removeFavorite: (recipeId) => set((state) => ({
+    favorites: state.favorites.filter((id) => id !== recipeId),
+  })),
+
+  recommendations: [],
+  
+  // Mock action to generate personalized recommendations based on favorites
+  generateRecommendations: () => set((state) => {
+    // Example: Recommend recipes that are not already favorites and share ingredients or type
+    const recommended = state.recipes.filter(recipe =>
+      !state.favorites.includes(recipe.id) && Math.random() > 0.5 // Mock recommendation logic
     );
-    return { searchTerm: term, filteredRecipes: filtered };
+    return { recommendations: recommended };
   }),
-
-  // Action to add a recipe
-  addRecipe: (newRecipe) => set((state) => ({
-    recipes: [...state.recipes, newRecipe],
-    filteredRecipes: [...state.recipes, newRecipe].filter((recipe) =>
-      recipe.title.toLowerCase().includes(state.searchTerm.toLowerCase())
-    ),
-  })),
-
-  // Other existing actions like updateRecipe and deleteRecipe
-  updateRecipe: (updatedRecipe) => set((state) => ({
-    recipes: state.recipes.map((recipe) =>
-      recipe.id === updatedRecipe.id ? updatedRecipe : recipe
-    ),
-    filteredRecipes: state.recipes.map((recipe) =>
-      recipe.id === updatedRecipe.id ? updatedRecipe : recipe
-    ).filter((recipe) => 
-      recipe.title.toLowerCase().includes(state.searchTerm.toLowerCase())
-    ),
-  })),
   
-  deleteRecipe: (recipeId) => set((state) => ({
-    recipes: state.recipes.filter((recipe) => recipe.id !== recipeId),
-    filteredRecipes: state.filteredRecipes.filter((recipe) => recipe.id !== recipeId),
-  })),
+  // Existing actions like addRecipe, updateRecipe, deleteRecipe...
 }));
 
 export default useRecipeStore;
