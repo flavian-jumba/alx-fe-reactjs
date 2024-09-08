@@ -6,6 +6,7 @@ import ProfileSettings from './ProfileSettings';
 
 const Profile = () => {
   return (
+    
     <div>
       <h2>Profile Page</h2>
       <nav>
