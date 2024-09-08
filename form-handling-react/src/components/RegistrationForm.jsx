@@ -2,22 +2,30 @@
 import React, { useState } from 'react';
 
 const RegistrationForm = () => {
-  // Destructure state variables for each field
+  // State variables for each field
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
+  const [errors, setErrors] = useState({}); // Object to store validation errors
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Basic validation
-    if (!username || !email || !password) {
-      setError('All fields are required');
+    // Validate the form fields
+    const newErrors = {};
+    if (!username) newErrors.username = 'Username is required';
+    if (!email) newErrors.email = 'Email is required';
+    if (!password) newErrors.password = 'Password is required';
+
+    if (Object.keys(newErrors).length > 0) {
+      setErrors(newErrors); // Update state with errors
       return;
     }
 
-    setError('');
+    // Clear errors if validation passes
+    setErrors({});
+
+    // Create formData object
     const formData = { username, email, password };
     console.log('Form Submitted:', formData);
     // Simulate API call here
@@ -33,6 +41,7 @@ const RegistrationForm = () => {
           value={username}
           onChange={(e) => setUsername(e.target.value)}
         />
+        {errors.username && <p style={{ color: 'red' }}>{errors.username}</p>}
       </div>
       <div>
         <label>Email:</label>
@@ -42,6 +51,7 @@ const RegistrationForm = () => {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
+        {errors.email && <p style={{ color: 'red' }}>{errors.email}</p>}
       </div>
       <div>
         <label>Password:</label>
@@ -51,8 +61,8 @@ const RegistrationForm = () => {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
+        {errors.password && <p style={{ color: 'red' }}>{errors.password}</p>}
       </div>
-      {error && <p style={{ color: 'red' }}>{error}</p>}
       <button type="submit">Register</button>
     </form>
   );
