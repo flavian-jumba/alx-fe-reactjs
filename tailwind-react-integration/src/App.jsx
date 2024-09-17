@@ -1,7 +1,7 @@
 import React from 'react';
 import UserProfile from './components/UserProfile';
 
-function App() {
+const App = () => {
   return (
     <div className="App">
       <UserProfile />
