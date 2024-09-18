@@ -1,20 +1,32 @@
-// src/components/RecommendationsList.jsx
-import { useRecipeStore } from './recipeStore';
+import React, { useEffect } from 'react'
+import { Link } from 'react-router-dom'
+import useRecipeStore from '../store/recipeStore'
 
 const RecommendationsList = () => {
-  const recommendations = useRecipeStore((state) => state.recommendations);
+  const recommendations = useRecipeStore((state) => state.recommendations)
+  const generateRecommendations = useRecipeStore((state) => state.generateRecommendations)
+
+  useEffect(() => {
+    generateRecommendations()
+  }, [generateRecommendations])
 
   return (
-    <div>
+    <div className="recommendations-list">
       <h2>Recommended for You</h2>
-      {recommendations.map((recipe) => (
-        <div key={recipe.id}>
-          <h3>{recipe.title}</h3>
-          <p>{recipe.description}</p>
-        </div>
-      ))}
+      {recommendations.length === 0 ? (
+        <p>No recommendations available at the moment.</p>
+      ) : (
+        recommendations.map((recipe) => (
+          <div key={recipe.id} className="recommendation-item">
+            <h3>
+              <Link to={`/recipe/${recipe.id}`}>{recipe.title}</Link>
+            </h3>
+            <p>{recipe.description}</p>
+          </div>
+        ))
+      )}
     </div>
   );
-};
+}
 
 export default RecommendationsList;

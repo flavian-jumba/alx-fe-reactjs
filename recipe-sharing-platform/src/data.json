@@ -3,12 +3,65 @@
       "id": 1,
       "title": "Spaghetti Carbonara",
       "summary": "A classic Italian pasta dish with eggs, cheese, bacon, and black pepper.",
-      "image": "https://via.placeholder.com/150"
+      "image": "https://via.placeholder.com/150",
+      "ingredients": [
+        "400g spaghetti",
+        "200g pancetta",
+        "4 large eggs",
+        "100g Parmesan cheese",
+        "Freshly ground black pepper"
+      ],
+      "instructions": [
+        "Cook the spaghetti in a large pot of salted boiling water.",
+        "While the pasta cooks, fry the pancetta in a large pan until crispy.",
+        "In a bowl, whisk together eggs, grated Parmesan, and black pepper.",
+        "Drain the pasta, reserving some pasta water.",
+        "Toss the hot pasta with the pancetta, then quickly stir in the egg mixture.",
+        "Add pasta water as needed to create a creamy sauce.",
+        "Serve immediately with extra Parmesan and black pepper."
+      ]
     },
     {
       "id": 2,
       "title": "Chicken Tikka Masala",
       "summary": "Chunks of grilled chicken (tikka) cooked in a smooth buttery & creamy tomato based gravy.",
-      "image": "https://via.placeholder.com/150"
+      "image": "https://via.placeholder.com/150",
+      "ingredients": [
+        "500g  boneless, skinless chicken breast",
+        "1 cup plain yogurt",
+        "2 tbsp ghee or vegetable oil",
+        "2 tsp garam masala",
+        "1 tsp cumin powder",
+        "1 tsp cayenne pepper",
+        "1 can (14 oz) diced tomatoes"
+      ],
+      "instructions": [
+        "In a bowl, mix yogurt, lemon juice, ginger-garlic paste, and all the spices for the marinade",
+        "Add the chicken pieces to this mixture, coat well, and refrigerate for at least 1 hour",
+        "Preheat your grill or oven to 200°C (400°F) or heat a skillet",
+        "Cook the marinated chicken pieces until they’re charred and cooked through (about 5-7 minutes per side in the oven or 4-5 minutes on a grill/pan). Set aside",
+        "Add the cooked chicken to the sauce and stir to coat. Simmer for another 5-7 minutes so the chicken absorbs the flavors",
+        "Serve hot with naan, basmati rice, or roti"
+      ]
+    },
+    {
+        "id": 3,
+        "title": "Canadian loud",
+        "summary": "A classic Canadian dish with native spices and maple syrup.",
+        "image": "https://via.placeholder.com/150",
+        "ingredients": [
+            "4 large russet potatoes (or frozen fries)",
+            "Oil for frying (vegetable or canola)",
+            "1 cup cheese curds (or shredded mozzarella if curds aren’t available)",
+"2 cups beef or chicken gravy (store-bought or homemade)",
+"Salt to taste"
+        ],
+        "instructions": [
+            "peel and cut them into thick fries. Soak the cut potatoes in cold water for 30 minutes",
+            "Heat oil in a deep fryer or large pot to 175°C (350°F)",
+            "Drain and pat the potatoes dry, then fry them in batches until golden brown and crispy",
+            "If using frozen fries, bake or fry according to package instructions",
+            "Remove fries and drain on paper towels. Sprinkle with salt."
+        ]
     }
   ]
