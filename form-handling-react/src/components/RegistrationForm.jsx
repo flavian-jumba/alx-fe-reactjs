@@ -8,9 +8,11 @@ const RegistrationForm = () => {
   const [password, setPassword] = useState('');
   const [errors, setErrors] = useState({}); // Object to store validation errors
 
+  
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    
     // Validate the form fields
     const newErrors = {};
     if (!username) newErrors.username = 'Username is required';
